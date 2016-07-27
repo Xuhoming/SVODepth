@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/aligned_mem.h
+string
+-
+string.h
+-
+cassert
+-
+cstdlib
+-
+
+/home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/patch_score.h
+stdint.h
+-
+tmmintrin.h
+-
+
+/home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/timer.h
+sys/time.h
+-
+stdio.h
+-
+unistd.h
+-
+
+/home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/test/test_patch_score.cpp
+stdio.h
+-
+opencv2/opencv.hpp
+-
+vikit/patch_score.h
+-
+vikit/aligned_mem.h
+-
+vikit/timer.h
+-
+
