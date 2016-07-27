@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/cwu/Experiment/SVO/catkin_ws/src/rpg_svo/svo/build/devel/setup.sh
