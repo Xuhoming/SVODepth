@@ -1517,10 +1517,13 @@ rpg_svo/svo/CMakeFiles/svo.dir/src/frame_handler_mono.cpp.o
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_svo/svo/include/svo/sparse_img_align.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_svo/svo/src/frame_handler_mono.cpp
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/abstract_camera.h
+ /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/blender_utils.h
+ /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/file_reader.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/math_utils.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/nlls_solver.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/nlls_solver_impl.hpp
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/performance_monitor.h
+ /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/pinhole_camera.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/ringbuffer.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/robust_cost.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/timer.h
@@ -1537,6 +1540,8 @@ rpg_svo/svo/CMakeFiles/svo.dir/src/frame_handler_mono.cpp.o
  /opt/ros/indigo/include/rosconsole/macros_generated.h
  /usr/include/eigen3/Eigen/Cholesky
  /usr/include/eigen3/Eigen/Core
+ /usr/include/eigen3/Eigen/Dense
+ /usr/include/eigen3/Eigen/Eigen
  /usr/include/eigen3/Eigen/Eigen2Support
  /usr/include/eigen3/Eigen/Eigenvalues
  /usr/include/eigen3/Eigen/Geometry

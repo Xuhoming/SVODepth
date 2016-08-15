@@ -22,6 +22,8 @@
 #include <svo/frame_handler_base.h>
 #include <svo/reprojector.h>
 #include <svo/initialization.h>
+#include <vikit/file_reader.h>
+#include <vikit/blender_utils.h>
 
 namespace svo {
 
@@ -35,7 +37,7 @@ public:
   virtual ~FrameHandlerMono();
 
   /// Provide an image.
-  void addImage(const cv::Mat& img, double timestamp);
+  void addImage(const cv::Mat& img, const cv::Mat& depthMap, double timestamp, int frame_id);
 
   /// Set the first frame (used for synthetic datasets in benchmark node)
   void setFirstFrame(const FramePtr& first_frame);
@@ -58,6 +60,7 @@ public:
       const int keyframe_id,
       const SE3& T_kf_f,
       const cv::Mat& img,
+      const cv::Mat& depthMap,
       const double timestamp);
 
 protected:
@@ -69,12 +72,16 @@ protected:
   vector< pair<FramePtr,size_t> > overlap_kfs_; //!< All keyframes with overlapping field of view. the paired number specifies how many common mappoints are observed TODO: why vector!?
   initialization::KltHomographyInit klt_homography_init_; //!< Used to estimate pose of the first two keyframes by estimating a homography.
   DepthFilter* depth_filter_;                   //!< Depth estimation algorithm runs in a parallel thread and is used to initialize new 3D points.
-
+  Sophus::SE3 T_w_f_1;
+  Sophus::SE3 T_w_f_2;
+  Sophus::SE3 T_w_f_3;
+  bool seen;
+  //std::vector<vk::blender_utils::file_format::ImageNameAndPose> sequence;
   /// Initialize the visual odometry algorithm.
   virtual void initialize();
 
   /// Processes the first frame and sets it as a keyframe.
-  virtual UpdateResult processFirstFrame();
+  virtual UpdateResult processFirstFrame(int frame_id);
 
   /// Processes all frames after the first frame until a keyframe is selected.
   virtual UpdateResult processSecondFrame();

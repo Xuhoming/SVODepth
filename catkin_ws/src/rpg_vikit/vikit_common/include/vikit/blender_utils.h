@@ -39,13 +39,42 @@ void loadBlenderDepthmap(
       *img_ptr = depth * sqrt(uv[0]*uv[0] + uv[1]*uv[1] + 1.0);
 
       // povray
-      // *img_ptr = depth/100.0; // depth is in [cm], we want [m]
+      //*img_ptr = depth/1000.0; // depth is in [cm], we want [m]
 
       if(file_stream.peek() == '\n' && x != cam.width()-1 && y != cam.height()-1)
         printf("WARNING: did not read the full depthmap!\n");
     }
   }
 }
+
+void loadBlenderDepthmap_msf(
+    const std::string file_name,
+    const vk::AbstractCamera& cam,
+    cv::Mat& img)
+{
+  std::ifstream file_stream(file_name.c_str());
+  assert(file_stream.is_open());
+  img = cv::Mat(cam.height(), cam.width(), CV_32FC1);
+  float * img_ptr = img.ptr<float>();
+  float depth;
+  for(int y=0; y<cam.height(); ++y)
+  {
+    for(int x=0; x<cam.width(); ++x, ++img_ptr)
+    {
+      file_stream >> depth;
+      // blender:
+      Eigen::Vector2d uv(vk::project2d(cam.cam2world(x,y)));
+      *img_ptr = depth * sqrt(uv[0]*uv[0] + uv[1]*uv[1] + 1.0);
+
+      // povray
+      //*img_ptr = depth/1000.0; // depth is in [cm], we want [m]
+
+      if(file_stream.peek() == '\n' && x != cam.width()-1 && y != cam.height()-1)
+        printf("WARNING: did not read the full depthmap!\n");
+    }
+  }
+}
+
 
 bool getDepthmapNormalAtPoint(
     const Vector2i& px,

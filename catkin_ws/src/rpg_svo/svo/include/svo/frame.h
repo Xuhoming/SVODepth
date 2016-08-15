@@ -54,8 +54,9 @@ public:
   bool                          is_keyframe_;           //!< Was this frames selected as keyframe?
   g2oFrameSE3*                  v_kf_;                  //!< Temporary pointer to the g2o node object of the keyframe.
   int                           last_published_ts_;     //!< Timestamp of last publishing.
+  cv::Mat                       depthmap_;               //!< Depth map associated with the frame
 
-  Frame(vk::AbstractCamera* cam, const cv::Mat& img, double timestamp);
+  Frame(vk::AbstractCamera* cam, const cv::Mat& img, const cv::Mat& depthmap, double timestamp);
   ~Frame();
 
   /// Initialize new frame and create image pyramid.

@@ -24,6 +24,8 @@
 #include <svo/sparse_img_align.h>
 #include <vikit/performance_monitor.h>
 #include <svo/depth_filter.h>
+
+
 #ifdef USE_BUNDLE_ADJUSTMENT
 #include <svo/bundle_adjustment.h>
 #endif
@@ -48,14 +50,17 @@ void FrameHandlerMono::initialize()
       &MapPointCandidates::newCandidatePoint, &map_.point_candidates_, _1, _2);
   depth_filter_ = new DepthFilter(feature_detector, depth_filter_cb);
   depth_filter_->startThread();
+  seen = false;
+
 }
+
 
 FrameHandlerMono::~FrameHandlerMono()
 {
   delete depth_filter_;
 }
 
-void FrameHandlerMono::addImage(const cv::Mat& img, const double timestamp)
+void FrameHandlerMono::addImage(const cv::Mat& img, const cv::Mat& depthmap, const double timestamp, int frame_id)
 {
   if(!startFrameProcessingCommon(timestamp))
     return;
@@ -66,17 +71,20 @@ void FrameHandlerMono::addImage(const cv::Mat& img, const double timestamp)
 
   // create new frame
   SVO_START_TIMER("pyramid_creation");
-  new_frame_.reset(new Frame(cam_, img.clone(), timestamp));
+  new_frame_.reset(new Frame(cam_, img.clone(), depthmap.clone(), timestamp));
   SVO_STOP_TIMER("pyramid_creation");
 
   // process frame
   UpdateResult res = RESULT_FAILURE;
   if(stage_ == STAGE_DEFAULT_FRAME)
     res = processFrame();
-  else if(stage_ == STAGE_SECOND_FRAME)
+  else if(stage_ == STAGE_SECOND_FRAME){
     res = processSecondFrame();
-  else if(stage_ == STAGE_FIRST_FRAME)
-    res = processFirstFrame();
+  }
+  else if(stage_ == STAGE_FIRST_FRAME){
+    printf("first frame_id: %d", frame_id);
+    res = processFirstFrame(frame_id);
+  }
   else if(stage_ == STAGE_RELOCALIZING)
     res = relocalizeFrame(SE3(Matrix3d::Identity(), Vector3d::Zero()),
                           map_.getClosestKeyframe(last_frame_));
@@ -89,9 +97,34 @@ void FrameHandlerMono::addImage(const cv::Mat& img, const double timestamp)
   finishFrameProcessingCommon(last_frame_->id_, res, last_frame_->nObs());
 }
 
-FrameHandlerMono::UpdateResult FrameHandlerMono::processFirstFrame()
+FrameHandlerMono::UpdateResult FrameHandlerMono::processFirstFrame(int frame_id)
 {
+
+  std::string dataset_dir = "/home/cwu/data//sin2_tex2_h1_v8_d"; 
+  vk::FileReader<vk::blender_utils::file_format::ImageNameAndPose> sequence_file_reader(dataset_dir+"/trajectory.txt");
+  std::vector<vk::blender_utils::file_format::ImageNameAndPose> sequence;
+  sequence_file_reader.skipComments();
+  if(!sequence_file_reader.next())
+    std::runtime_error("Failed to open sequence file");
+  sequence_file_reader.readAllEntries(sequence);
+  std::cout << "RUN EXPERIMENT: read " << sequence.size() << " dataset entries." << std::endl;
+  std::vector<vk::blender_utils::file_format::ImageNameAndPose>::iterator it = sequence.begin();
+
+  for (int i= 0; i< frame_id; ++i){
+    ++it;
+  }
+
+  
+  T_w_f_1 = Sophus::SE3(it->q_, it->t_);
+  ++it;
+  T_w_f_2 = Sophus::SE3(it->q_, it->t_);
+  ++it;
+  T_w_f_3 = Sophus::SE3(it->q_, it->t_);
+
+
   new_frame_->T_f_w_ = SE3(Matrix3d::Identity(), Vector3d::Zero());
+  std::cout << "first frame transform" << T_w_f_1.translation() << "\n" << endl; 
+  //new_frame_->T_f_w_ = T_w_f_1.inverse();
   if(klt_homography_init_.addFirstFrame(new_frame_) == initialization::FAILURE)
     return RESULT_NO_KEYFRAME;
   new_frame_->setKeyframe();
@@ -103,6 +136,17 @@ FrameHandlerMono::UpdateResult FrameHandlerMono::processFirstFrame()
 
 FrameHandlerBase::UpdateResult FrameHandlerMono::processSecondFrame()
 {
+  // if(seen){
+  //   new_frame_->T_f_w_ = T_w_f_3.inverse();
+  //   std::cout << "second frame transform" << T_w_f_3.translation() << "\n" << endl; 
+  // }else{
+  //   new_frame_->T_f_w_ = T_w_f_2.inverse();
+  //   std::cout << "second frame transform" << T_w_f_2.translation() << "\n" << endl; 
+  // }
+  // seen = true;
+  
+
+  
   initialization::InitResult res = klt_homography_init_.addSecondFrame(new_frame_);
   if(res == initialization::FAILURE)
     return RESULT_FAILURE;
@@ -131,6 +175,7 @@ FrameHandlerBase::UpdateResult FrameHandlerMono::processFrame()
 {
   // Set initial pose TODO use prior
   new_frame_->T_f_w_ = last_frame_->T_f_w_;
+  //std::cout << "current frame transform" << last_frame_->T_f_w_.inverse().translation() << "\n" << endl; 
 
   // sparse image align
   SVO_START_TIMER("sparse_img_align");
@@ -269,12 +314,13 @@ bool FrameHandlerMono::relocalizeFrameAtPose(
     const int keyframe_id,
     const SE3& T_f_kf,
     const cv::Mat& img,
+    const cv::Mat& depthmap,
     const double timestamp)
 {
   FramePtr ref_keyframe;
   if(!map_.getKeyframeById(keyframe_id, ref_keyframe))
     return false;
-  new_frame_.reset(new Frame(cam_, img.clone(), timestamp));
+  new_frame_.reset(new Frame(cam_, img.clone(), depthmap.clone(), timestamp));
   UpdateResult res = relocalizeFrame(T_f_kf, ref_keyframe);
   if(res != RESULT_FAILURE) {
     last_frame_ = new_frame_;

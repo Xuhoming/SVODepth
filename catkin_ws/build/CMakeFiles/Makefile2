@@ -826,12 +826,12 @@ clean: rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages.dir/clean
 # Target rules for target rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_DenseInput.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/all: rpg_svo/svo_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_Feature.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/all: rpg_svo/svo_msgs/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_DenseInput.dir/all
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_NbvTrajectory.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_Info.dir/all
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_NbvTrajectory.dir/all
 	$(MAKE) -f rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/build.make rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/build.make rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  19 20 21 22
@@ -862,12 +862,12 @@ clean: rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_cpp.dir/clean
 # Target rules for target rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_Feature.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_DenseInput.dir/all
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_NbvTrajectory.dir/all
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_Info.dir/all
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_Feature.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_Info.dir/all
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_NbvTrajectory.dir/all
 	$(MAKE) -f rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/build.make rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/build.make rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  23 24 25 26
@@ -898,12 +898,12 @@ clean: rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_lisp.dir/clean
 # Target rules for target rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir
 
 # All Build rule for target.
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_DenseInput.dir/all
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_Feature.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_DenseInput.dir/all
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_NbvTrajectory.dir/all
-rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_Info.dir/all
+rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/all: rpg_svo/svo_msgs/CMakeFiles/_svo_msgs_generate_messages_check_deps_NbvTrajectory.dir/all
 	$(MAKE) -f rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/build.make rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/build.make rpg_svo/svo_msgs/CMakeFiles/svo_msgs_generate_messages_py.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  27 28 29 30 31
@@ -1242,7 +1242,7 @@ clean: rpg_vikit/vikit_common/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/
 rpg_vikit/vikit_common/CMakeFiles/test_vk_common_camera.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
 	$(MAKE) -f rpg_vikit/vikit_common/CMakeFiles/test_vk_common_camera.dir/build.make rpg_vikit/vikit_common/CMakeFiles/test_vk_common_camera.dir/depend
 	$(MAKE) -f rpg_vikit/vikit_common/CMakeFiles/test_vk_common_camera.dir/build.make rpg_vikit/vikit_common/CMakeFiles/test_vk_common_camera.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  40
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  33
 	@echo "Built target test_vk_common_camera"
 .PHONY : rpg_vikit/vikit_common/CMakeFiles/test_vk_common_camera.dir/all
 
@@ -1277,7 +1277,7 @@ clean: rpg_vikit/vikit_common/CMakeFiles/test_vk_common_camera.dir/clean
 rpg_vikit/vikit_common/CMakeFiles/test_vk_common_patch_score.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
 	$(MAKE) -f rpg_vikit/vikit_common/CMakeFiles/test_vk_common_patch_score.dir/build.make rpg_vikit/vikit_common/CMakeFiles/test_vk_common_patch_score.dir/depend
 	$(MAKE) -f rpg_vikit/vikit_common/CMakeFiles/test_vk_common_patch_score.dir/build.make rpg_vikit/vikit_common/CMakeFiles/test_vk_common_patch_score.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  41
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  34
 	@echo "Built target test_vk_common_patch_score"
 .PHONY : rpg_vikit/vikit_common/CMakeFiles/test_vk_common_patch_score.dir/all
 
@@ -1312,7 +1312,7 @@ clean: rpg_vikit/vikit_common/CMakeFiles/test_vk_common_patch_score.dir/clean
 rpg_vikit/vikit_common/CMakeFiles/test_vk_common_triangulation.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
 	$(MAKE) -f rpg_vikit/vikit_common/CMakeFiles/test_vk_common_triangulation.dir/build.make rpg_vikit/vikit_common/CMakeFiles/test_vk_common_triangulation.dir/depend
 	$(MAKE) -f rpg_vikit/vikit_common/CMakeFiles/test_vk_common_triangulation.dir/build.make rpg_vikit/vikit_common/CMakeFiles/test_vk_common_triangulation.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  42
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  35
 	@echo "Built target test_vk_common_triangulation"
 .PHONY : rpg_vikit/vikit_common/CMakeFiles/test_vk_common_triangulation.dir/all
 
@@ -1347,7 +1347,7 @@ clean: rpg_vikit/vikit_common/CMakeFiles/test_vk_common_triangulation.dir/clean
 rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all:
 	$(MAKE) -f rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/build.make rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/depend
 	$(MAKE) -f rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/build.make rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  43 44 45 46 47 48 49 50 51 52
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  36 37 38 39 40 41 42 43 44 45
 	@echo "Built target vikit_common"
 .PHONY : rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
 
@@ -1799,7 +1799,7 @@ clean: rpg_vikit/vikit_ros/CMakeFiles/tf_generate_messages_py.dir/clean
 rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
 	$(MAKE) -f rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/build.make rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/depend
 	$(MAKE) -f rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/build.make rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  53
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  46
 	@echo "Built target vikit_ros"
 .PHONY : rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all
 
@@ -1925,24 +1925,10 @@ clean: rpg_vikit/vikit_ros/CMakeFiles/visualization_msgs_generate_messages_py.di
 
 # Convenience name for "all" pass in the directory.
 rpg_svo/svo/all: rpg_svo/svo/CMakeFiles/svo.dir/all
-rpg_svo/svo/all: rpg_svo/svo/CMakeFiles/test_depth_filter.dir/all
-rpg_svo/svo/all: rpg_svo/svo/CMakeFiles/test_feature_align.dir/all
-rpg_svo/svo/all: rpg_svo/svo/CMakeFiles/test_feature_detection.dir/all
-rpg_svo/svo/all: rpg_svo/svo/CMakeFiles/test_matcher.dir/all
-rpg_svo/svo/all: rpg_svo/svo/CMakeFiles/test_pipeline.dir/all
-rpg_svo/svo/all: rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/all
-rpg_svo/svo/all: rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/all
 .PHONY : rpg_svo/svo/all
 
 # Convenience name for "clean" pass in the directory.
 rpg_svo/svo/clean: rpg_svo/svo/CMakeFiles/svo.dir/clean
-rpg_svo/svo/clean: rpg_svo/svo/CMakeFiles/test_depth_filter.dir/clean
-rpg_svo/svo/clean: rpg_svo/svo/CMakeFiles/test_feature_align.dir/clean
-rpg_svo/svo/clean: rpg_svo/svo/CMakeFiles/test_feature_detection.dir/clean
-rpg_svo/svo/clean: rpg_svo/svo/CMakeFiles/test_matcher.dir/clean
-rpg_svo/svo/clean: rpg_svo/svo/CMakeFiles/test_pipeline.dir/clean
-rpg_svo/svo/clean: rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/clean
-rpg_svo/svo/clean: rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/clean
 .PHONY : rpg_svo/svo/clean
 
 # Convenience name for "preinstall" pass in the directory.
@@ -1983,265 +1969,6 @@ rpg_svo/svo/CMakeFiles/svo.dir/clean:
 
 # clean rule for target.
 clean: rpg_svo/svo/CMakeFiles/svo.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target rpg_svo/svo/CMakeFiles/test_depth_filter.dir
-
-# All Build rule for target.
-rpg_svo/svo/CMakeFiles/test_depth_filter.dir/all: rpg_svo/svo/CMakeFiles/svo.dir/all
-rpg_svo/svo/CMakeFiles/test_depth_filter.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
-rpg_svo/svo/CMakeFiles/test_depth_filter.dir/all: rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build.make rpg_svo/svo/CMakeFiles/test_depth_filter.dir/depend
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build.make rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  33
-	@echo "Built target test_depth_filter"
-.PHONY : rpg_svo/svo/CMakeFiles/test_depth_filter.dir/all
-
-# Include target in all.
-all: rpg_svo/svo/CMakeFiles/test_depth_filter.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-rpg_svo/svo/CMakeFiles/test_depth_filter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 27
-	$(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_depth_filter.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 0
-.PHONY : rpg_svo/svo/CMakeFiles/test_depth_filter.dir/rule
-
-# Convenience name for target.
-test_depth_filter: rpg_svo/svo/CMakeFiles/test_depth_filter.dir/rule
-.PHONY : test_depth_filter
-
-# clean rule for target.
-rpg_svo/svo/CMakeFiles/test_depth_filter.dir/clean:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build.make rpg_svo/svo/CMakeFiles/test_depth_filter.dir/clean
-.PHONY : rpg_svo/svo/CMakeFiles/test_depth_filter.dir/clean
-
-# clean rule for target.
-clean: rpg_svo/svo/CMakeFiles/test_depth_filter.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target rpg_svo/svo/CMakeFiles/test_feature_align.dir
-
-# All Build rule for target.
-rpg_svo/svo/CMakeFiles/test_feature_align.dir/all: rpg_svo/svo/CMakeFiles/svo.dir/all
-rpg_svo/svo/CMakeFiles/test_feature_align.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
-rpg_svo/svo/CMakeFiles/test_feature_align.dir/all: rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_align.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_align.dir/depend
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_align.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_align.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  34
-	@echo "Built target test_feature_align"
-.PHONY : rpg_svo/svo/CMakeFiles/test_feature_align.dir/all
-
-# Include target in all.
-all: rpg_svo/svo/CMakeFiles/test_feature_align.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-rpg_svo/svo/CMakeFiles/test_feature_align.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 27
-	$(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_feature_align.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 0
-.PHONY : rpg_svo/svo/CMakeFiles/test_feature_align.dir/rule
-
-# Convenience name for target.
-test_feature_align: rpg_svo/svo/CMakeFiles/test_feature_align.dir/rule
-.PHONY : test_feature_align
-
-# clean rule for target.
-rpg_svo/svo/CMakeFiles/test_feature_align.dir/clean:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_align.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_align.dir/clean
-.PHONY : rpg_svo/svo/CMakeFiles/test_feature_align.dir/clean
-
-# clean rule for target.
-clean: rpg_svo/svo/CMakeFiles/test_feature_align.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target rpg_svo/svo/CMakeFiles/test_feature_detection.dir
-
-# All Build rule for target.
-rpg_svo/svo/CMakeFiles/test_feature_detection.dir/all: rpg_svo/svo/CMakeFiles/svo.dir/all
-rpg_svo/svo/CMakeFiles/test_feature_detection.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
-rpg_svo/svo/CMakeFiles/test_feature_detection.dir/all: rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_detection.dir/depend
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  35
-	@echo "Built target test_feature_detection"
-.PHONY : rpg_svo/svo/CMakeFiles/test_feature_detection.dir/all
-
-# Include target in all.
-all: rpg_svo/svo/CMakeFiles/test_feature_detection.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-rpg_svo/svo/CMakeFiles/test_feature_detection.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 27
-	$(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_feature_detection.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 0
-.PHONY : rpg_svo/svo/CMakeFiles/test_feature_detection.dir/rule
-
-# Convenience name for target.
-test_feature_detection: rpg_svo/svo/CMakeFiles/test_feature_detection.dir/rule
-.PHONY : test_feature_detection
-
-# clean rule for target.
-rpg_svo/svo/CMakeFiles/test_feature_detection.dir/clean:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_detection.dir/clean
-.PHONY : rpg_svo/svo/CMakeFiles/test_feature_detection.dir/clean
-
-# clean rule for target.
-clean: rpg_svo/svo/CMakeFiles/test_feature_detection.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target rpg_svo/svo/CMakeFiles/test_matcher.dir
-
-# All Build rule for target.
-rpg_svo/svo/CMakeFiles/test_matcher.dir/all: rpg_svo/svo/CMakeFiles/svo.dir/all
-rpg_svo/svo/CMakeFiles/test_matcher.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
-rpg_svo/svo/CMakeFiles/test_matcher.dir/all: rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_matcher.dir/build.make rpg_svo/svo/CMakeFiles/test_matcher.dir/depend
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_matcher.dir/build.make rpg_svo/svo/CMakeFiles/test_matcher.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  36
-	@echo "Built target test_matcher"
-.PHONY : rpg_svo/svo/CMakeFiles/test_matcher.dir/all
-
-# Include target in all.
-all: rpg_svo/svo/CMakeFiles/test_matcher.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-rpg_svo/svo/CMakeFiles/test_matcher.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 27
-	$(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_matcher.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 0
-.PHONY : rpg_svo/svo/CMakeFiles/test_matcher.dir/rule
-
-# Convenience name for target.
-test_matcher: rpg_svo/svo/CMakeFiles/test_matcher.dir/rule
-.PHONY : test_matcher
-
-# clean rule for target.
-rpg_svo/svo/CMakeFiles/test_matcher.dir/clean:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_matcher.dir/build.make rpg_svo/svo/CMakeFiles/test_matcher.dir/clean
-.PHONY : rpg_svo/svo/CMakeFiles/test_matcher.dir/clean
-
-# clean rule for target.
-clean: rpg_svo/svo/CMakeFiles/test_matcher.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target rpg_svo/svo/CMakeFiles/test_pipeline.dir
-
-# All Build rule for target.
-rpg_svo/svo/CMakeFiles/test_pipeline.dir/all: rpg_svo/svo/CMakeFiles/svo.dir/all
-rpg_svo/svo/CMakeFiles/test_pipeline.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
-rpg_svo/svo/CMakeFiles/test_pipeline.dir/all: rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_pipeline.dir/build.make rpg_svo/svo/CMakeFiles/test_pipeline.dir/depend
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_pipeline.dir/build.make rpg_svo/svo/CMakeFiles/test_pipeline.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  37
-	@echo "Built target test_pipeline"
-.PHONY : rpg_svo/svo/CMakeFiles/test_pipeline.dir/all
-
-# Include target in all.
-all: rpg_svo/svo/CMakeFiles/test_pipeline.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-rpg_svo/svo/CMakeFiles/test_pipeline.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 27
-	$(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_pipeline.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 0
-.PHONY : rpg_svo/svo/CMakeFiles/test_pipeline.dir/rule
-
-# Convenience name for target.
-test_pipeline: rpg_svo/svo/CMakeFiles/test_pipeline.dir/rule
-.PHONY : test_pipeline
-
-# clean rule for target.
-rpg_svo/svo/CMakeFiles/test_pipeline.dir/clean:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_pipeline.dir/build.make rpg_svo/svo/CMakeFiles/test_pipeline.dir/clean
-.PHONY : rpg_svo/svo/CMakeFiles/test_pipeline.dir/clean
-
-# clean rule for target.
-clean: rpg_svo/svo/CMakeFiles/test_pipeline.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir
-
-# All Build rule for target.
-rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/all: rpg_svo/svo/CMakeFiles/svo.dir/all
-rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
-rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/all: rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build.make rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/depend
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build.make rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  38
-	@echo "Built target test_pose_optimizer"
-.PHONY : rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/all
-
-# Include target in all.
-all: rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 27
-	$(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 0
-.PHONY : rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/rule
-
-# Convenience name for target.
-test_pose_optimizer: rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/rule
-.PHONY : test_pose_optimizer
-
-# clean rule for target.
-rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/clean:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build.make rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/clean
-.PHONY : rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/clean
-
-# clean rule for target.
-clean: rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir
-
-# All Build rule for target.
-rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/all: rpg_svo/svo/CMakeFiles/svo.dir/all
-rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/all: rpg_vikit/vikit_common/CMakeFiles/vikit_common.dir/all
-rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/all: rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.dir/all
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build.make rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/depend
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build.make rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  39
-	@echo "Built target test_sparse_img_align"
-.PHONY : rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/all
-
-# Include target in all.
-all: rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 27
-	$(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles 0
-.PHONY : rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/rule
-
-# Convenience name for target.
-test_sparse_img_align: rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/rule
-.PHONY : test_sparse_img_align
-
-# clean rule for target.
-rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/clean:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build.make rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/clean
-.PHONY : rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/clean
-
-# clean rule for target.
-clean: rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -2444,7 +2171,7 @@ rpg_svo/svo_ros/CMakeFiles/vo.dir/all: rpg_vikit/vikit_ros/CMakeFiles/vikit_ros.
 rpg_svo/svo_ros/CMakeFiles/vo.dir/all: rpg_svo/svo_ros/CMakeFiles/svo_visualizer.dir/all
 	$(MAKE) -f rpg_svo/svo_ros/CMakeFiles/vo.dir/build.make rpg_svo/svo_ros/CMakeFiles/vo.dir/depend
 	$(MAKE) -f rpg_svo/svo_ros/CMakeFiles/vo.dir/build.make rpg_svo/svo_ros/CMakeFiles/vo.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  54
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cwu/Experiment/SVO/catkin_ws/build/CMakeFiles  47
 	@echo "Built target vo"
 .PHONY : rpg_svo/svo_ros/CMakeFiles/vo.dir/all
 

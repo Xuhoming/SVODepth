@@ -65,6 +65,10 @@ svo/reprojector.h
 -
 svo/initialization.h
 -
+vikit/file_reader.h
+-
+vikit/blender_utils.h
+-
 
 /home/cwu/Experiment/SVO/catkin_ws/src/rpg_svo/svo/include/svo/global.h
 list

@@ -62,8 +62,8 @@ install/strip/fast: install/strip
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -165,104 +165,6 @@ svo: rpg_svo/svo/CMakeFiles/svo.dir/rule
 svo/fast:
 	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/svo.dir/build.make rpg_svo/svo/CMakeFiles/svo.dir/build
 .PHONY : svo/fast
-
-# Convenience name for target.
-rpg_svo/svo/CMakeFiles/test_depth_filter.dir/rule:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_depth_filter.dir/rule
-.PHONY : rpg_svo/svo/CMakeFiles/test_depth_filter.dir/rule
-
-# Convenience name for target.
-test_depth_filter: rpg_svo/svo/CMakeFiles/test_depth_filter.dir/rule
-.PHONY : test_depth_filter
-
-# fast build rule for target.
-test_depth_filter/fast:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build.make rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build
-.PHONY : test_depth_filter/fast
-
-# Convenience name for target.
-rpg_svo/svo/CMakeFiles/test_feature_align.dir/rule:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_feature_align.dir/rule
-.PHONY : rpg_svo/svo/CMakeFiles/test_feature_align.dir/rule
-
-# Convenience name for target.
-test_feature_align: rpg_svo/svo/CMakeFiles/test_feature_align.dir/rule
-.PHONY : test_feature_align
-
-# fast build rule for target.
-test_feature_align/fast:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_align.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_align.dir/build
-.PHONY : test_feature_align/fast
-
-# Convenience name for target.
-rpg_svo/svo/CMakeFiles/test_feature_detection.dir/rule:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_feature_detection.dir/rule
-.PHONY : rpg_svo/svo/CMakeFiles/test_feature_detection.dir/rule
-
-# Convenience name for target.
-test_feature_detection: rpg_svo/svo/CMakeFiles/test_feature_detection.dir/rule
-.PHONY : test_feature_detection
-
-# fast build rule for target.
-test_feature_detection/fast:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build
-.PHONY : test_feature_detection/fast
-
-# Convenience name for target.
-rpg_svo/svo/CMakeFiles/test_matcher.dir/rule:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_matcher.dir/rule
-.PHONY : rpg_svo/svo/CMakeFiles/test_matcher.dir/rule
-
-# Convenience name for target.
-test_matcher: rpg_svo/svo/CMakeFiles/test_matcher.dir/rule
-.PHONY : test_matcher
-
-# fast build rule for target.
-test_matcher/fast:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_matcher.dir/build.make rpg_svo/svo/CMakeFiles/test_matcher.dir/build
-.PHONY : test_matcher/fast
-
-# Convenience name for target.
-rpg_svo/svo/CMakeFiles/test_pipeline.dir/rule:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_pipeline.dir/rule
-.PHONY : rpg_svo/svo/CMakeFiles/test_pipeline.dir/rule
-
-# Convenience name for target.
-test_pipeline: rpg_svo/svo/CMakeFiles/test_pipeline.dir/rule
-.PHONY : test_pipeline
-
-# fast build rule for target.
-test_pipeline/fast:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_pipeline.dir/build.make rpg_svo/svo/CMakeFiles/test_pipeline.dir/build
-.PHONY : test_pipeline/fast
-
-# Convenience name for target.
-rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/rule:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/rule
-.PHONY : rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/rule
-
-# Convenience name for target.
-test_pose_optimizer: rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/rule
-.PHONY : test_pose_optimizer
-
-# fast build rule for target.
-test_pose_optimizer/fast:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build.make rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build
-.PHONY : test_pose_optimizer/fast
-
-# Convenience name for target.
-rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/rule:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/rule
-.PHONY : rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/rule
-
-# Convenience name for target.
-test_sparse_img_align: rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/rule
-.PHONY : test_sparse_img_align
-
-# fast build rule for target.
-test_sparse_img_align/fast:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build.make rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build
-.PHONY : test_sparse_img_align/fast
 
 src/bundle_adjustment.o: src/bundle_adjustment.cpp.o
 .PHONY : src/bundle_adjustment.o
@@ -624,174 +526,6 @@ src/sparse_img_align.cpp.s:
 	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/svo.dir/build.make rpg_svo/svo/CMakeFiles/svo.dir/src/sparse_img_align.cpp.s
 .PHONY : src/sparse_img_align.cpp.s
 
-test/test_depth_filter.o: test/test_depth_filter.cpp.o
-.PHONY : test/test_depth_filter.o
-
-# target to build an object file
-test/test_depth_filter.cpp.o:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build.make rpg_svo/svo/CMakeFiles/test_depth_filter.dir/test/test_depth_filter.cpp.o
-.PHONY : test/test_depth_filter.cpp.o
-
-test/test_depth_filter.i: test/test_depth_filter.cpp.i
-.PHONY : test/test_depth_filter.i
-
-# target to preprocess a source file
-test/test_depth_filter.cpp.i:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build.make rpg_svo/svo/CMakeFiles/test_depth_filter.dir/test/test_depth_filter.cpp.i
-.PHONY : test/test_depth_filter.cpp.i
-
-test/test_depth_filter.s: test/test_depth_filter.cpp.s
-.PHONY : test/test_depth_filter.s
-
-# target to generate assembly for a file
-test/test_depth_filter.cpp.s:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build.make rpg_svo/svo/CMakeFiles/test_depth_filter.dir/test/test_depth_filter.cpp.s
-.PHONY : test/test_depth_filter.cpp.s
-
-test/test_feature_alignment.o: test/test_feature_alignment.cpp.o
-.PHONY : test/test_feature_alignment.o
-
-# target to build an object file
-test/test_feature_alignment.cpp.o:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_align.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_align.dir/test/test_feature_alignment.cpp.o
-.PHONY : test/test_feature_alignment.cpp.o
-
-test/test_feature_alignment.i: test/test_feature_alignment.cpp.i
-.PHONY : test/test_feature_alignment.i
-
-# target to preprocess a source file
-test/test_feature_alignment.cpp.i:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_align.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_align.dir/test/test_feature_alignment.cpp.i
-.PHONY : test/test_feature_alignment.cpp.i
-
-test/test_feature_alignment.s: test/test_feature_alignment.cpp.s
-.PHONY : test/test_feature_alignment.s
-
-# target to generate assembly for a file
-test/test_feature_alignment.cpp.s:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_align.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_align.dir/test/test_feature_alignment.cpp.s
-.PHONY : test/test_feature_alignment.cpp.s
-
-test/test_feature_detection.o: test/test_feature_detection.cpp.o
-.PHONY : test/test_feature_detection.o
-
-# target to build an object file
-test/test_feature_detection.cpp.o:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_detection.dir/test/test_feature_detection.cpp.o
-.PHONY : test/test_feature_detection.cpp.o
-
-test/test_feature_detection.i: test/test_feature_detection.cpp.i
-.PHONY : test/test_feature_detection.i
-
-# target to preprocess a source file
-test/test_feature_detection.cpp.i:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_detection.dir/test/test_feature_detection.cpp.i
-.PHONY : test/test_feature_detection.cpp.i
-
-test/test_feature_detection.s: test/test_feature_detection.cpp.s
-.PHONY : test/test_feature_detection.s
-
-# target to generate assembly for a file
-test/test_feature_detection.cpp.s:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_detection.dir/test/test_feature_detection.cpp.s
-.PHONY : test/test_feature_detection.cpp.s
-
-test/test_matcher.o: test/test_matcher.cpp.o
-.PHONY : test/test_matcher.o
-
-# target to build an object file
-test/test_matcher.cpp.o:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_matcher.dir/build.make rpg_svo/svo/CMakeFiles/test_matcher.dir/test/test_matcher.cpp.o
-.PHONY : test/test_matcher.cpp.o
-
-test/test_matcher.i: test/test_matcher.cpp.i
-.PHONY : test/test_matcher.i
-
-# target to preprocess a source file
-test/test_matcher.cpp.i:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_matcher.dir/build.make rpg_svo/svo/CMakeFiles/test_matcher.dir/test/test_matcher.cpp.i
-.PHONY : test/test_matcher.cpp.i
-
-test/test_matcher.s: test/test_matcher.cpp.s
-.PHONY : test/test_matcher.s
-
-# target to generate assembly for a file
-test/test_matcher.cpp.s:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_matcher.dir/build.make rpg_svo/svo/CMakeFiles/test_matcher.dir/test/test_matcher.cpp.s
-.PHONY : test/test_matcher.cpp.s
-
-test/test_pipeline.o: test/test_pipeline.cpp.o
-.PHONY : test/test_pipeline.o
-
-# target to build an object file
-test/test_pipeline.cpp.o:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_pipeline.dir/build.make rpg_svo/svo/CMakeFiles/test_pipeline.dir/test/test_pipeline.cpp.o
-.PHONY : test/test_pipeline.cpp.o
-
-test/test_pipeline.i: test/test_pipeline.cpp.i
-.PHONY : test/test_pipeline.i
-
-# target to preprocess a source file
-test/test_pipeline.cpp.i:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_pipeline.dir/build.make rpg_svo/svo/CMakeFiles/test_pipeline.dir/test/test_pipeline.cpp.i
-.PHONY : test/test_pipeline.cpp.i
-
-test/test_pipeline.s: test/test_pipeline.cpp.s
-.PHONY : test/test_pipeline.s
-
-# target to generate assembly for a file
-test/test_pipeline.cpp.s:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_pipeline.dir/build.make rpg_svo/svo/CMakeFiles/test_pipeline.dir/test/test_pipeline.cpp.s
-.PHONY : test/test_pipeline.cpp.s
-
-test/test_pose_optimizer.o: test/test_pose_optimizer.cpp.o
-.PHONY : test/test_pose_optimizer.o
-
-# target to build an object file
-test/test_pose_optimizer.cpp.o:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build.make rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/test/test_pose_optimizer.cpp.o
-.PHONY : test/test_pose_optimizer.cpp.o
-
-test/test_pose_optimizer.i: test/test_pose_optimizer.cpp.i
-.PHONY : test/test_pose_optimizer.i
-
-# target to preprocess a source file
-test/test_pose_optimizer.cpp.i:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build.make rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/test/test_pose_optimizer.cpp.i
-.PHONY : test/test_pose_optimizer.cpp.i
-
-test/test_pose_optimizer.s: test/test_pose_optimizer.cpp.s
-.PHONY : test/test_pose_optimizer.s
-
-# target to generate assembly for a file
-test/test_pose_optimizer.cpp.s:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build.make rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/test/test_pose_optimizer.cpp.s
-.PHONY : test/test_pose_optimizer.cpp.s
-
-test/test_sparse_img_align.o: test/test_sparse_img_align.cpp.o
-.PHONY : test/test_sparse_img_align.o
-
-# target to build an object file
-test/test_sparse_img_align.cpp.o:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build.make rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/test/test_sparse_img_align.cpp.o
-.PHONY : test/test_sparse_img_align.cpp.o
-
-test/test_sparse_img_align.i: test/test_sparse_img_align.cpp.i
-.PHONY : test/test_sparse_img_align.i
-
-# target to preprocess a source file
-test/test_sparse_img_align.cpp.i:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build.make rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/test/test_sparse_img_align.cpp.i
-.PHONY : test/test_sparse_img_align.cpp.i
-
-test/test_sparse_img_align.s: test/test_sparse_img_align.cpp.s
-.PHONY : test/test_sparse_img_align.s
-
-# target to generate assembly for a file
-test/test_sparse_img_align.cpp.s:
-	cd /home/cwu/Experiment/SVO/catkin_ws/build && $(MAKE) -f rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build.make rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/test/test_sparse_img_align.cpp.s
-.PHONY : test/test_sparse_img_align.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -802,17 +536,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install"
-	@echo "... test_matcher"
 	@echo "... list_install_components"
-	@echo "... test_feature_detection"
 	@echo "... svo"
-	@echo "... test_sparse_img_align"
-	@echo "... test_pipeline"
 	@echo "... test"
-	@echo "... test_feature_align"
-	@echo "... test_pose_optimizer"
 	@echo "... install/local"
-	@echo "... test_depth_filter"
 	@echo "... src/bundle_adjustment.o"
 	@echo "... src/bundle_adjustment.i"
 	@echo "... src/bundle_adjustment.s"
@@ -858,27 +585,6 @@ help:
 	@echo "... src/sparse_img_align.o"
 	@echo "... src/sparse_img_align.i"
 	@echo "... src/sparse_img_align.s"
-	@echo "... test/test_depth_filter.o"
-	@echo "... test/test_depth_filter.i"
-	@echo "... test/test_depth_filter.s"
-	@echo "... test/test_feature_alignment.o"
-	@echo "... test/test_feature_alignment.i"
-	@echo "... test/test_feature_alignment.s"
-	@echo "... test/test_feature_detection.o"
-	@echo "... test/test_feature_detection.i"
-	@echo "... test/test_feature_detection.s"
-	@echo "... test/test_matcher.o"
-	@echo "... test/test_matcher.i"
-	@echo "... test/test_matcher.s"
-	@echo "... test/test_pipeline.o"
-	@echo "... test/test_pipeline.i"
-	@echo "... test/test_pipeline.s"
-	@echo "... test/test_pose_optimizer.o"
-	@echo "... test/test_pose_optimizer.i"
-	@echo "... test/test_pose_optimizer.s"
-	@echo "... test/test_sparse_img_align.o"
-	@echo "... test/test_sparse_img_align.i"
-	@echo "... test/test_sparse_img_align.s"
 .PHONY : help
 
 

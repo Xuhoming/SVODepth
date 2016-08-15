@@ -17,8 +17,11 @@ rpg_svo/svo_ros/CMakeFiles/svo_visualizer.dir/src/visualizer.cpp.o
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_svo/svo_ros/include/svo_ros/visualizer.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_svo/svo_ros/src/visualizer.cpp
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/abstract_camera.h
+ /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/blender_utils.h
+ /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/file_reader.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/math_utils.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/performance_monitor.h
+ /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/pinhole_camera.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/ringbuffer.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/timer.h
  /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_ros/include/vikit/output_helper.h
@@ -146,6 +149,8 @@ rpg_svo/svo_ros/CMakeFiles/svo_visualizer.dir/src/visualizer.cpp.o
  /opt/ros/indigo/include/visualization_msgs/MarkerArray.h
  /usr/include/eigen3/Eigen/Cholesky
  /usr/include/eigen3/Eigen/Core
+ /usr/include/eigen3/Eigen/Dense
+ /usr/include/eigen3/Eigen/Eigen
  /usr/include/eigen3/Eigen/Eigen2Support
  /usr/include/eigen3/Eigen/Eigenvalues
  /usr/include/eigen3/Eigen/Geometry

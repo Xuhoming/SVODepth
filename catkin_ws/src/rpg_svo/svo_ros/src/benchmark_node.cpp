@@ -50,6 +50,8 @@ class BenchmarkNode
   std::ofstream trace_depth_error_;
   vk::AbstractCamera* cam_;
   double img_noise_sigma_;
+  cv::Mat depth_ref_;
+  int img_id;
 
 public:
   BenchmarkNode(ros::NodeHandle& nh);
@@ -155,7 +157,8 @@ void BenchmarkNode::runBenchmark(const std::string& dataset_dir)
       SVO_ERROR_STREAM("Reading image "<<img_filename<<" failed.");
       return;
     }
-    vo_->addImage(img, it->timestamp_);
+    cv::Mat depthmap;
+    vo_->addImage(img, depthmap, it->timestamp_, frame_count_);
     visualizer_.publishMinimal(img, vo_->lastFrame(), *vo_, it->timestamp_);
     visualizer_.visualizeMarkers(vo_->lastFrame(), vo_->coreKeyframes(), vo_->map());
     if(vo_->stage() == svo::FrameHandlerMono::STAGE_DEFAULT_FRAME)
@@ -216,7 +219,7 @@ void BenchmarkNode::runBlenderBenchmark(const std::string& dataset_dir)
     if(frame_count_ == 0)
     {
       // set reference frame at ground-truth pose
-      FramePtr frame_ref(new Frame(cam_, img, it->timestamp_));
+      FramePtr frame_ref(new Frame(cam_, img, depthmap, it->timestamp_));
       frame_ref->T_f_w_ = T_w_gt.inverse();
 
       // extract features, generate features with 3D points
@@ -236,7 +239,7 @@ void BenchmarkNode::runBlenderBenchmark(const std::string& dataset_dir)
     else
     {
       SVO_DEBUG_STREAM("Processing image "<<it->image_name_<<".");
-      vo_->addImage(img, it->timestamp_);
+      vo_->addImage(img, depthmap, it->timestamp_, frame_count_);
       visualizer_.publishMinimal(img, vo_->lastFrame(), *vo_, it->timestamp_);
       visualizer_.visualizeMarkers(vo_->lastFrame(), vo_->coreKeyframes(), vo_->map());
     }

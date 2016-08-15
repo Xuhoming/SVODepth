@@ -6,14 +6,14 @@
     <param name="cam_topic" value="/camera/image_raw" type="str" />
     
     <!-- Camera calibration file -->
-    <rosparam file="$(find svo_ros)/param/easy_calib.yaml" />
+    <rosparam file="$(find svo_ros)/param/camera_pinhole.yaml" />
 
     <!-- Default parameter settings: choose between vo_fast and vo_accurate -->
     <rosparam file="$(find svo_ros)/param/vo_accurate.yaml" />
     
     <!-- Initial camera orientation, make it point downwards -->
 
-    <param name="max_fps" value="30" />
+    <param name="max_fps" value="100" />
     <param name="quality_min_fts" value="20" />
 
   </node>

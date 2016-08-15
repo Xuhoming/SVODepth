@@ -91,6 +91,10 @@ svo/reprojector.h
 -
 svo/initialization.h
 -
+vikit/file_reader.h
+-
+vikit/blender_utils.h
+-
 
 /home/cwu/Experiment/SVO/catkin_ws/src/rpg_svo/svo/include/svo/global.h
 list
@@ -228,6 +232,28 @@ svo_msgs/DenseInput.h
 Eigen/Core
 -
 
+/home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/blender_utils.h
+list
+-
+string
+-
+vikit/pinhole_camera.h
+-
+vikit/math_utils.h
+-
+opencv2/opencv.hpp
+-
+fstream
+-
+Eigen/Core
+-
+
+/home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/file_reader.h
+fstream
+-
+vector
+-
+
 /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/math_utils.h
 Eigen/Core
 -
@@ -246,6 +272,18 @@ iostream
 fstream
 -
 vikit/timer.h
+-
+
+/home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/pinhole_camera.h
+stdlib.h
+-
+string
+-
+Eigen/Eigen
+-
+vikit/abstract_camera.h
+-
+opencv2/opencv.hpp
 -
 
 /home/cwu/Experiment/SVO/catkin_ws/src/rpg_vikit/vikit_common/include/vikit/ringbuffer.h
@@ -2061,6 +2099,26 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 Eigen2Support
 /usr/include/eigen3/Eigen/Eigen2Support
+
+/usr/include/eigen3/Eigen/Dense
+Core
+/usr/include/eigen3/Eigen/Core
+LU
+/usr/include/eigen3/Eigen/LU
+Cholesky
+/usr/include/eigen3/Eigen/Cholesky
+QR
+/usr/include/eigen3/Eigen/QR
+SVD
+/usr/include/eigen3/Eigen/SVD
+Geometry
+/usr/include/eigen3/Eigen/Geometry
+Eigenvalues
+/usr/include/eigen3/Eigen/Eigenvalues
+
+/usr/include/eigen3/Eigen/Eigen
+Dense
+/usr/include/eigen3/Eigen/Dense
 
 /usr/include/eigen3/Eigen/Eigen2Support
 src/Core/util/DisableStupidWarnings.h

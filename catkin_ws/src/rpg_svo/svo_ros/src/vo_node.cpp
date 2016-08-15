@@ -35,6 +35,11 @@
 #include <vikit/camera_loader.h>
 #include <vikit/user_input_thread.h>
 
+#include <iostream>
+#include <list>
+#include <vikit/file_reader.h>
+#include <vikit/blender_utils.h>
+
 namespace svo {
 
 /// SVO Interface
@@ -55,6 +60,9 @@ public:
   void imgCb(const sensor_msgs::ImageConstPtr& msg);
   void processUserActions();
   void remoteKeyCb(const std_msgs::StringConstPtr& key_input);
+  cv::Mat depth_ref_;
+  int img_id;
+  std::vector<cv::Mat> depthMat;
 };
 
 VoNode::VoNode() :
@@ -82,6 +90,18 @@ VoNode::VoNode() :
                       vk::getParam<double>("svo/init_ty", 0.0),
                       vk::getParam<double>("svo/init_tz", 0.0)));
 
+
+    for(int img_id = 2; img_id < 3; ++img_id)
+  {
+
+    std::string dataset_dir("/home/cwu/data/heads/seq-01");
+    std::stringstream image_name;
+    image_name << std::setw( 6 ) << std::setfill( '0' ) << img_id;
+    vk::blender_utils::loadBlenderDepthmap(dataset_dir+"/depth/frame_" + image_name.str().c_str() + "_0.depth", *cam_, depth_ref_);
+    depthMat.push_back(depth_ref_.clone());
+    cout << depth_ref_ << endl;
+  }
+
   // Init VO and start
   vo_ = new svo::FrameHandlerMono(cam_);
   vo_->start();
@@ -103,8 +123,14 @@ void VoNode::imgCb(const sensor_msgs::ImageConstPtr& msg)
   } catch (cv_bridge::Exception& e) {
     ROS_ERROR("cv_bridge exception: %s", e.what());
   }
+
+  int frame_id = atoi((msg->header.frame_id).c_str());
+
+  //printf("current frameid:%d",frame_id);
+  cv::Mat depth_frame = depthMat[frame_id];
+  // cout << depth_frame;
   processUserActions();
-  vo_->addImage(img, msg->header.stamp.toSec());
+  vo_->addImage(img, depth_frame, msg->header.stamp.toSec(), frame_id);
   visualizer_.publishMinimal(img, vo_->lastFrame(), *vo_, msg->header.stamp.toSec());
 
   if(publish_markers_ && vo_->stage() != FrameHandlerBase::STAGE_PAUSED)
@@ -160,6 +186,7 @@ int main(int argc, char **argv)
   ros::NodeHandle nh;
   std::cout << "create vo_node" << std::endl;
   svo::VoNode vo_node;
+
 
   // subscribe to cam msgs
   std::string cam_topic(vk::getParam<std::string>("svo/cam_topic", "camera/image_raw"));

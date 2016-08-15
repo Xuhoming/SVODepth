@@ -62,8 +62,8 @@ install/strip/fast: install/strip
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -868,97 +868,6 @@ svo/fast:
 .PHONY : svo/fast
 
 #=============================================================================
-# Target rules for targets named test_depth_filter
-
-# Build rule for target.
-test_depth_filter: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_depth_filter
-.PHONY : test_depth_filter
-
-# fast build rule for target.
-test_depth_filter/fast:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build.make rpg_svo/svo/CMakeFiles/test_depth_filter.dir/build
-.PHONY : test_depth_filter/fast
-
-#=============================================================================
-# Target rules for targets named test_feature_align
-
-# Build rule for target.
-test_feature_align: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_feature_align
-.PHONY : test_feature_align
-
-# fast build rule for target.
-test_feature_align/fast:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_align.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_align.dir/build
-.PHONY : test_feature_align/fast
-
-#=============================================================================
-# Target rules for targets named test_feature_detection
-
-# Build rule for target.
-test_feature_detection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_feature_detection
-.PHONY : test_feature_detection
-
-# fast build rule for target.
-test_feature_detection/fast:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build.make rpg_svo/svo/CMakeFiles/test_feature_detection.dir/build
-.PHONY : test_feature_detection/fast
-
-#=============================================================================
-# Target rules for targets named test_matcher
-
-# Build rule for target.
-test_matcher: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_matcher
-.PHONY : test_matcher
-
-# fast build rule for target.
-test_matcher/fast:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_matcher.dir/build.make rpg_svo/svo/CMakeFiles/test_matcher.dir/build
-.PHONY : test_matcher/fast
-
-#=============================================================================
-# Target rules for targets named test_pipeline
-
-# Build rule for target.
-test_pipeline: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_pipeline
-.PHONY : test_pipeline
-
-# fast build rule for target.
-test_pipeline/fast:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_pipeline.dir/build.make rpg_svo/svo/CMakeFiles/test_pipeline.dir/build
-.PHONY : test_pipeline/fast
-
-#=============================================================================
-# Target rules for targets named test_pose_optimizer
-
-# Build rule for target.
-test_pose_optimizer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_pose_optimizer
-.PHONY : test_pose_optimizer
-
-# fast build rule for target.
-test_pose_optimizer/fast:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build.make rpg_svo/svo/CMakeFiles/test_pose_optimizer.dir/build
-.PHONY : test_pose_optimizer/fast
-
-#=============================================================================
-# Target rules for targets named test_sparse_img_align
-
-# Build rule for target.
-test_sparse_img_align: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_sparse_img_align
-.PHONY : test_sparse_img_align
-
-# fast build rule for target.
-test_sparse_img_align/fast:
-	$(MAKE) -f rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build.make rpg_svo/svo/CMakeFiles/test_sparse_img_align.dir/build
-.PHONY : test_sparse_img_align/fast
-
-#=============================================================================
 # Target rules for targets named benchmark
 
 # Build rule for target.
@@ -1103,14 +1012,7 @@ help:
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... test_matcher"
-	@echo "... test_feature_detection"
 	@echo "... svo"
-	@echo "... test_sparse_img_align"
-	@echo "... test_pipeline"
-	@echo "... test_feature_align"
-	@echo "... test_pose_optimizer"
-	@echo "... test_depth_filter"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... benchmark"
