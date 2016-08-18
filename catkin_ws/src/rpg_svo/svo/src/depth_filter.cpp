@@ -211,6 +211,7 @@ void DepthFilter::updateSeeds(FramePtr frame)
   const double focal_length = frame->cam_->errorMultiplier2();
   double px_noise = 1.0;
   double px_error_angle = atan(px_noise/(2.0*focal_length))*2.0; // law of chord (sehnensatz)
+  double z_real = 0.0;
 
   while( it!=seeds_.end())
   {
@@ -277,30 +278,41 @@ void DepthFilter::updateSeeds(FramePtr frame)
 
       Eigen::Vector3d pos_real(it->ftr->px[1], it->ftr->px[0], map.at<float>(it->ftr->px[1],it->ftr->px[0]));
 
-
-      const double z_real = map.at<float>(it->ftr->px[1],it->ftr->px[0]);
-
+      const double z_real_old = z_real;
+      z_real = map.at<float>(it->ftr->px[1],it->ftr->px[0]);
+      //cout <<"getting pixel at:" << map.at<float>(it->ftr->px[1],it->ftr->px[0]) << "\t"<< "svo depth:" << (1.0/it->mu) << endl;
+      Vector3d xyz_world;
       //printf("Estimated depth: %f \t Real Depth: %f\n", (1.0/it->mu), z_real);
-      Vector3d xyz_world(it->ftr->frame->T_f_w_.inverse() * (it->ftr->f * z_real));
-      Point* point = new Point(xyz_world, it->ftr);
-      it->ftr->point = point;
-      // Eigen::Vector3d xyz_real = it->ftr->frame->f2w(pos_real);
-      //const double z_real = (it->ftr->frame->pos()-pos_real).norm().z();
-      //printf("Inserted Point %f %f\n", (1.0/it->mu), z_real);
-      /* FIXME it is not threadsafe to add a feature to the frame here.
-      if(frame->isKeyframe())
-      {
-        Feature* ftr = new Feature(frame.get(), matcher_.px_cur_, matcher_.search_level_);
-        ftr->point = point;
-        point->addFrameRef(ftr);
-        frame->addFeature(ftr);
-        it->ftr->frame->addFeature(it->ftr);
+      if(z_real > 0){
+        
+        xyz_world = (it->ftr->frame->T_f_w_.inverse() * (it->ftr->f * z_real));
+            // Eigen::Vector3d xyz_real = it->ftr->frame->f2w(pos_real);
+        //const double z_real = (it->ftr->frame->pos()-pos_real).norm().z();
+        //printf("Inserted Point %f %f\n", (1.0/it->mu), z_real);
+        /* FIXME it is not threadsafe to add a feature to the frame here.
+        if(frame->isKeyframe())
+        {
+          Feature* ftr = new Feature(frame.get(), matcher_.px_cur_, matcher_.search_level_);
+          ftr->point = point;
+          point->addFrameRef(ftr);
+          frame->addFeature(ftr);
+          it->ftr->frame->addFeature(it->ftr);
+        }
+        else
+        */
+  
       }
-      else
-      */
+    else{
+        assert(it->ftr->point == NULL); // TODO this should not happen anymore
+        xyz_world = (it->ftr->frame->T_f_w_.inverse() * (it->ftr->f * (1.0/it->mu)));
+      }
+
       {
+        Point* point = new Point(xyz_world, it->ftr);
+        it->ftr->point = point;
         seed_converged_cb_(point, it->sigma2); // put in candidate list
       }
+  
       it = seeds_.erase(it);
     }
     else if(isnan(z_inv_min))

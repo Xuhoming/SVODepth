@@ -91,15 +91,15 @@ VoNode::VoNode() :
                       vk::getParam<double>("svo/init_tz", 0.0)));
 
 
-    for(int img_id = 2; img_id < 3; ++img_id)
+    for(int img_id = 2; img_id < 188; ++img_id)
   {
 
-    std::string dataset_dir("/home/cwu/data/heads/seq-01");
+    std::string dataset_dir("/home/cwu/data/sin2_tex2_h1_v8_d");
     std::stringstream image_name;
     image_name << std::setw( 6 ) << std::setfill( '0' ) << img_id;
     vk::blender_utils::loadBlenderDepthmap(dataset_dir+"/depth/frame_" + image_name.str().c_str() + "_0.depth", *cam_, depth_ref_);
     depthMat.push_back(depth_ref_.clone());
-    cout << depth_ref_ << endl;
+
   }
 
   // Init VO and start

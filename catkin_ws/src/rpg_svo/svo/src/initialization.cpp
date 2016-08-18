@@ -40,7 +40,7 @@ InitResult KltHomographyInit::addFirstFrame(FramePtr frame_ref)
   return SUCCESS;
 }
 
-InitResult KltHomographyInit::addSecondFrame(FramePtr frame_cur)
+InitResult KltHomographyInit::addSecondFrame(FramePtr frame_cur,Sophus::SE3 trans)
 {
   trackKlt(frame_ref_, frame_cur, px_ref_, px_cur_, f_ref_, f_cur_, disparities_);
   SVO_INFO_STREAM("Init: KLT tracked "<< disparities_.size() <<" features");
@@ -53,10 +53,11 @@ InitResult KltHomographyInit::addSecondFrame(FramePtr frame_cur)
   if(disparity < Config::initMinDisparity())
     return NO_KEYFRAME;
 
+  frame_cur->T_f_w_ = trans;
   computeHomography(
       f_ref_, f_cur_,
       frame_ref_->cam_->errorMultiplier2(), Config::poseOptimThresh(),
-      inliers_, xyz_in_cur_, T_cur_from_ref_);
+      inliers_, xyz_in_cur_, T_cur_from_ref_, frame_ref_, frame_cur);
   SVO_INFO_STREAM("Init: Homography RANSAC "<<inliers_.size()<<" inliers.");
 
   if(inliers_.size() < Config::initMinInliers())
@@ -77,11 +78,11 @@ InitResult KltHomographyInit::addSecondFrame(FramePtr frame_cur)
   for(size_t i=0; i<xyz_in_cur_.size(); ++i)
     depth_vec.push_back((xyz_in_cur_[i]).z());
   double scene_depth_median = vk::getMedian(depth_vec);
-  double scale = map_depth_median/scene_depth_median;
+  double scale = Config::mapScale();
   frame_cur->T_f_w_ = T_cur_from_ref_ * frame_ref_->T_f_w_;
-  frame_cur->T_f_w_.translation() =
-      -frame_cur->T_f_w_.rotation_matrix()*(frame_ref_->pos() + scale*(frame_cur->pos() - frame_ref_->pos()));
-
+  // frame_cur->T_f_w_.translation() =
+  //     -frame_cur->T_f_w_.rotation_matrix()*(frame_ref_->pos() + scale*(frame_cur->pos() - frame_ref_->pos()));
+  // cout << "THe second frame TFW " << trans.inverse().translation()  << endl;
 
   // For each inlier create 3D point and add feature in both frames
   SE3 T_world_cur = frame_cur->T_f_w_.inverse();
@@ -92,7 +93,8 @@ InitResult KltHomographyInit::addSecondFrame(FramePtr frame_cur)
     if(frame_ref_->cam_->isInFrame(px_cur.cast<int>(), 10) && frame_ref_->cam_->isInFrame(px_ref.cast<int>(), 10) && xyz_in_cur_[*it].z() > 0)
     {
       const double z_real = map.at<float>(px_cur_[*it].y, px_cur_[*it].x);
-      Vector3d pos = T_world_cur * (xyz_in_cur_[*it]*scale);
+      Vector3d pos = T_world_cur * (xyz_in_cur_[*it]);
+     // cout << "initial point: " << xyz_in_cur_[*it] << endl;
       //pos.z() = z_real;
       //printf("Estimated depth: %f \t Real Depth: %f\n", map_depth_median, z_real);
       //cout << map << endl;
@@ -187,7 +189,9 @@ void computeHomography(
     double reprojection_threshold,
     vector<int>& inliers,
     vector<Vector3d>& xyz_in_cur,
-    SE3& T_cur_from_ref)
+    SE3& T_cur_from_ref, 
+    FramePtr frame_ref,
+    FramePtr frame_cur)
 {
   vector<Vector2d, aligned_allocator<Vector2d> > uv_ref(f_ref.size());
   vector<Vector2d, aligned_allocator<Vector2d> > uv_cur(f_cur.size());
@@ -198,12 +202,14 @@ void computeHomography(
   }
   vk::Homography Homography(uv_ref, uv_cur, focal_length, reprojection_threshold);
   Homography.computeSE3fromMatches();
+  Sophus::SE3 T_c2_from_c1 = frame_cur->T_f_w_*frame_ref->T_f_w_.inverse();
+  cout << "relative:" << T_c2_from_c1.translation() << "ref:" << frame_ref->T_f_w_.translation() << "cur:" << frame_cur->T_f_w_.translation() << endl;
   vector<int> outliers;
   vk::computeInliers(f_cur, f_ref,
-                     Homography.T_c2_from_c1.rotation_matrix(), Homography.T_c2_from_c1.translation(),
+                     T_c2_from_c1.rotation_matrix(), T_c2_from_c1.translation(),
                      reprojection_threshold, focal_length,
                      xyz_in_cur, inliers, outliers);
-  T_cur_from_ref = Homography.T_c2_from_c1;
+  T_cur_from_ref = T_c2_from_c1;
 }
 
 

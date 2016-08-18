@@ -38,7 +38,7 @@ public:
   KltHomographyInit() {};
   ~KltHomographyInit() {};
   InitResult addFirstFrame(FramePtr frame_ref);
-  InitResult addSecondFrame(FramePtr frame_ref);
+  InitResult addSecondFrame(FramePtr frame_ref, Sophus::SE3 trans);
   void reset();
 
 protected:
@@ -75,7 +75,9 @@ void computeHomography(
     double reprojection_threshold,
     vector<int>& inliers,
     vector<Vector3d>& xyz_in_cur,
-    SE3& T_cur_from_ref);
+    SE3& T_cur_from_ref,
+    FramePtr frame_ref,
+    FramePtr frame_cur);
 
 } // namespace initialization
 } // namespace svo

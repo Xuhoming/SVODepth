@@ -1,0 +1,35 @@
+# CMake generated Testfile for 
+# Source directory: /home/cwu/Experiment/SVO/workspace/pcl
+# Build directory: /home/cwu/Experiment/SVO/workspace/pcl/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs(common)
+subdirs(kdtree)
+subdirs(octree)
+subdirs(search)
+subdirs(sample_consensus)
+subdirs(filters)
+subdirs(io)
+subdirs(2d)
+subdirs(features)
+subdirs(keypoints)
+subdirs(ml)
+subdirs(registration)
+subdirs(recognition)
+subdirs(stereo)
+subdirs(surface)
+subdirs(geometry)
+subdirs(segmentation)
+subdirs(tools)
+subdirs(visualization)
+subdirs(tracking)
+subdirs(apps)
+subdirs(gpu)
+subdirs(outofcore)
+subdirs(people)
+subdirs(test)
+subdirs(cuda)
+subdirs(examples)
+subdirs(simulation)
+subdirs(doc)

@@ -1,18 +1,19 @@
-cam_model: Pinhole
-cam_width: 640
-cam_height: 480
-cam_fx: 585.0
-cam_fy: 585.0
-cam_cx: 320.0
-cam_cy: 240.0
-
 # cam_model: Pinhole
-# cam_width: 752
+# cam_width: 640
 # cam_height: 480
-# cam_fx: 315.5
-# cam_fy: 315.5
-# cam_cx: 376.0
+# cam_fx: 525.0
+# cam_fy: 525.0
+# cam_cx: 320.0
 # cam_cy: 240.0
+
+##for the sin2 dataset
+cam_model: Pinhole
+cam_width: 752
+cam_height: 480
+cam_fx: 315.5
+cam_fy: 315.5
+cam_cx: 376.0
+cam_cy: 240.0
 
 # My own webcam params
 # cam_model: Pinhole

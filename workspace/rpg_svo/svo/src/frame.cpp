@@ -170,19 +170,13 @@ bool getSceneDepth(const Frame& frame, double& depth_mean, double& depth_min)
   vector<double> depth_vec;
   depth_vec.reserve(frame.fts_.size());
   depth_min = std::numeric_limits<double>::max();
-  cv::Mat map = frame.depthmap_;
   for(auto it=frame.fts_.begin(), ite=frame.fts_.end(); it!=ite; ++it)
   {
     if((*it)->point != NULL)
     {
       const double z = frame.w2f((*it)->point->pos_).z();
-      Eigen::Vector3d pos_real(((*it)->point->pos_).x(), ((*it)->point->pos_).y(), 
-        map.at<float>((*it)->point->obs_.front()->px[1],(*it)->point->obs_.front()->px[0]));
-
-      const double z_real = frame.w2f(pos_real).z();
-      // cout << "Feature Depth: " << (*it)->point->pos_ <<"\t" << pos_real<< endl;
-      depth_vec.push_back(z_real);
-      depth_min = fmin(z_real, depth_min);
+      depth_vec.push_back(z);
+      depth_min = fmin(z, depth_min);
     }
   }
   if(depth_vec.empty())

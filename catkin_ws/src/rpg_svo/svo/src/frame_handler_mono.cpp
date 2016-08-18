@@ -117,37 +117,57 @@ FrameHandlerMono::UpdateResult FrameHandlerMono::processFirstFrame(int frame_id)
   
   T_w_f_1 = Sophus::SE3(it->q_, it->t_);
   ++it;
+
+
+  //new_frame_->T_f_w_ = SE3(Matrix3d::Identity(), Vector3d::Zero());
+  std::cout << "first frame transform" << T_w_f_1.translation() << "\n" << endl; 
+  new_frame_->T_f_w_ = T_w_f_1.inverse();
+
+  // extract features, generate features with 3D points
+  svo::feature_detection::FastDetector detector(
+      cam_->width(), cam_->height(), svo::Config::gridSize(), svo::Config::nPyrLevels());
+  detector.detect(new_frame_.get(), new_frame_->img_pyr_, svo::Config::triangMinCornerScore(), new_frame_->fts_);
+  std::for_each(new_frame_->fts_.begin(), new_frame_->fts_.end(), [&](Feature* ftr) {
+    Eigen::Vector3d pt_pos_cur = ftr->f*new_frame_->depthmap_.at<float>(ftr->px[1], ftr->px[0]);
+    Eigen::Vector3d pt_pos_world = new_frame_->T_f_w_.inverse()*pt_pos_cur;
+    svo::Point* point = new svo::Point(pt_pos_world, ftr);
+    ftr->point = point;
+  });
+
+
   T_w_f_2 = Sophus::SE3(it->q_, it->t_);
   ++it;
   T_w_f_3 = Sophus::SE3(it->q_, it->t_);
 
-
-  new_frame_->T_f_w_ = SE3(Matrix3d::Identity(), Vector3d::Zero());
-  std::cout << "first frame transform" << T_w_f_1.translation() << "\n" << endl; 
-  //new_frame_->T_f_w_ = T_w_f_1.inverse();
-  if(klt_homography_init_.addFirstFrame(new_frame_) == initialization::FAILURE)
-    return RESULT_NO_KEYFRAME;
+  // resetAll();
+  last_frame_ = new_frame_;
   new_frame_->setKeyframe();
-  map_.addKeyframe(new_frame_);
-  stage_ = STAGE_SECOND_FRAME;
+  map_.addKeyframe(last_frame_);
+  stage_ = STAGE_DEFAULT_FRAME;
+
+  // if(klt_homography_init_.addFirstFrame(new_frame_) == initialization::FAILURE)
+  //   return RESULT_NO_KEYFRAME;
+  // new_frame_->setKeyframe();
+  // map_.addKeyframe(new_frame_);
+  // stage_ = STAGE_SECOND_FRAME;
   SVO_INFO_STREAM("Init: Selected first frame.");
   return RESULT_IS_KEYFRAME;
 }
 
 FrameHandlerBase::UpdateResult FrameHandlerMono::processSecondFrame()
 {
-  // if(seen){
-  //   new_frame_->T_f_w_ = T_w_f_3.inverse();
-  //   std::cout << "second frame transform" << T_w_f_3.translation() << "\n" << endl; 
-  // }else{
-  //   new_frame_->T_f_w_ = T_w_f_2.inverse();
-  //   std::cout << "second frame transform" << T_w_f_2.translation() << "\n" << endl; 
-  // }
-  // seen = true;
+  if(seen){
+    new_frame_->T_f_w_ = T_w_f_3.inverse();
+    std::cout << "third frame transform" << T_w_f_3.translation() << "\n" << endl; 
+  }else{
+    new_frame_->T_f_w_ = T_w_f_2.inverse();
+    std::cout << "second frame transform" << T_w_f_2.translation() << "\n" << endl; 
+  }
+  seen = true;
   
 
   
-  initialization::InitResult res = klt_homography_init_.addSecondFrame(new_frame_);
+  initialization::InitResult res = klt_homography_init_.addSecondFrame(new_frame_,T_w_f_2.inverse());
   if(res == initialization::FAILURE)
     return RESULT_FAILURE;
   else if(res == initialization::NO_KEYFRAME)

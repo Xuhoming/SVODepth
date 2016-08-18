@@ -134,7 +134,7 @@ void BenchmarkNode::depthFilterCb(svo::Point* point, double depth_sigma2)
                                                    point->obs_.front()->px[0]);
   double error = fabs(depth - depth_ref_.at<float>(point->obs_.front()->px[1],
                                                    point->obs_.front()->px[0]));
-  printf("svo depth:%f  ref depth:%f\n", depth, depth_pt);
+  //printf("svo depth:%f  ref depth:%f\n", depth, depth_pt);
   results_.push_back(ConvergedSeed(
       point->obs_.front()->px[0], point->obs_.front()->px[1], depth, error));
   errors_.push_back(error);
@@ -190,6 +190,7 @@ void BenchmarkNode::testReconstruction(
         std::stringstream image_name;
         image_name << std::setw( 6 ) << std::setfill( '0' ) << img_id;
         vk::blender_utils::loadBlenderDepthmap(dataset_dir+"/depth/frame_" + image_name.str().c_str() + "_0.depth", *cam_, depth_ref_);
+        printf("current id is %s",image_name.str().c_str());
         frame_ref_ = boost::make_shared<svo::Frame>(cam_, img, depth_ref_, 0.0);
         frame_ref_->T_f_w_ = vo_->lastFrame()->T_f_w_.inverse();
         depth_filter_->addKeyframe(frame_ref_, 2, 0.5);

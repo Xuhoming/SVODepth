@@ -113,7 +113,7 @@ void DepthFilter::addKeyframe(FramePtr frame, double depth_mean, double depth_mi
 
 void DepthFilter::initializeSeeds(FramePtr frame)
 {
-  Features new_features;
+  Features new_features; 
   feature_detector_->setExistingFeatures(frame->fts_);
   feature_detector_->detect(frame.get(), frame->img_pyr_,
                             Config::triangMinCornerScore(), new_features);
@@ -122,9 +122,11 @@ void DepthFilter::initializeSeeds(FramePtr frame)
   seeds_updating_halt_ = true;
   lock_t lock(seeds_mut_); // by locking the updateSeeds function stops
   ++Seed::batch_counter;
-  cv::Mat map = frame->depthmap_;
+  
   std::for_each(new_features.begin(), new_features.end(), [&](Feature* ftr){
-    seeds_.push_back(Seed(ftr, map.at<float>(ftr->px[1],ftr->px[0]), new_keyframe_min_depth_));
+
+    // cout << "Filter depths" << new_keyframe_mean_depth_ << "\t" << z_real << endl;
+    seeds_.push_back(Seed(ftr, new_keyframe_mean_depth_, new_keyframe_min_depth_));
   });
 
 
@@ -263,11 +265,26 @@ void DepthFilter::updateSeeds(FramePtr frame)
 
     // if the seed has converged, we initialize a new candidate point and remove the seed
     if(sqrt(it->sigma2) < it->z_range/options_.seed_convergence_sigma2_thresh)
+    //if(1.0 > 0.0)
     {
       assert(it->ftr->point == NULL); // TODO this should not happen anymore
       Vector3d xyz_world(it->ftr->frame->T_f_w_.inverse() * (it->ftr->f * (1.0/it->mu)));
       Point* point = new Point(xyz_world, it->ftr);
       it->ftr->point = point;
+
+      // cv::Mat map = it->ftr->frame->depthmap_;
+
+      // Eigen::Vector3d pos_real(it->ftr->px[1], it->ftr->px[0], map.at<float>(it->ftr->px[1],it->ftr->px[0]));
+
+
+      // const double z_real = map.at<float>(it->ftr->px[1],it->ftr->px[0]);
+      // Vector3d xyz_world(it->ftr->frame->T_f_w_.inverse() * (it->ftr->f * z_real));
+      // Point* point = new Point(xyz_world, it->ftr);
+      // it->ftr->point = point;
+      // Eigen::Vector3d xyz_real = it->ftr->frame->f2w(pos_real);
+      // printf("Estimated depth: %f \t Real Depth: %f\n", 1.0/it->mu, z_real);
+      //const double z_real = (it->ftr->frame->pos()-pos_real).norm().z();
+      //printf("Inserted Point %f %f\n", (1.0/it->mu), z_real);
       /* FIXME it is not threadsafe to add a feature to the frame here.
       if(frame->isKeyframe())
       {
